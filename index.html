@@ -1,9 +1,98 @@
+﻿<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>test title</title>
-    </head>
-    <body>
-        <h3>test content</h3>
-    </body>
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>HTML5</title>
+
+    <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
+<!--!!!!!!!!!!!!!!-->
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript" src="colpick.js"></script>
+	<link rel="stylesheet" type="text/css" href="colpick.css" />
+</head>
+
+<body style="overflow:hidden;">
+<div id="ds">
+<span><button id="pisker">bgcolor</button></span><br/>
+<span><button id="text1">text1</button></span><br/>
+<span><button id="text2">text2</button></span><br/>
+<span><button id="z">second-hand</button></span><br/>
+</div>
+<script>
+$(function(){
+
+	$('#pisker').colpick({
+		//onSubmit:提交按钮执行函数
+		onSubmit:function(A,B){//第二值是获取颜色
+			//console.log(B);//控
+			$('body').css('background','#'+B);
+			$('#ds').css('background','#'+B);
+		}
+	});
+	$('#text1').colpick({	
+		onSubmit:function(A,B){
+			$('.hour-text').css('color','#'+B);
+			
+		}
+	});
+	$('#text2').colpick({	
+		onSubmit:function(A,B){
+			$('.minute-text').css('color','#'+B);
+			
+		}
+	});
+	$('#z').colpick({	
+		onSubmit:function(A,B){
+			$('.second-hand').css('background','#'+B);
+			
+		}
+	});
+
+});
+	
+</script>	
+
+<!--!!!!!!!!!!!!!!-->
+
+<div class="fill">
+  <div class="reference"></div>
+  <div class="clock" id="utility-clock">
+    <div class="centre">
+      <div class="dynamic"></div>
+      <div class="expand round circle-1"></div>
+      <div class="anchor hour">
+        <div class="element thin-hand"></div>
+        <div class="element fat-hand"></div>
+      </div>
+      <div class="anchor minute">
+        <div class="element thin-hand"></div>
+        <div class="element fat-hand minute-hand"></div>
+      </div>
+      <div class="anchor second">
+        <div class="element second-hand"></div>
+      </div>
+      <div class="expand round circle-2"></div>
+      <div class="expand round circle-3"></div>
+    </div>
+  </div>
+</div>
+
+  <script src="js/index.js"></script>
+<!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+<script type="text/javascript">
+document.getElementById('btn').onclick = function(){
+	document.getElementById('color').click();
+};
+
+document.getElementById('color').onchange = function(){
+	document.body.style.background = this.value;
+};
+
+
+</script>
+</body>
+
 </html>
