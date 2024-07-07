@@ -22,6 +22,15 @@
 <span><button id="z">second-hand</button></span><br/>
 </div>
 <script>
+document.addEventListener('click', function() {
+		if (!document.fullscreenElement) {
+			document.documentElement.requestFullscreen().catch(err => {
+				alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+			});
+		} else {
+			document.exitFullscreen();
+		}
+	});
 $(function(){
 
 	$('#pisker').colpick({
