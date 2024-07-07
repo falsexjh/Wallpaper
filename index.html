@@ -22,13 +22,35 @@
 <span><button id="z">second-hand</button></span><br/>
 </div>
 <script>
+let wakeLock = null;
+
+// Request Wake Lock
+const requestWakeLock = async () => {
+	try {
+		wakeLock = await navigator.wakeLock.request('screen');
+		console.log('Wake Lock is active.');
+	} catch (err) {
+		console.error(`${err.name}, ${err.message}`);
+	}
+};
+
+// Release Wake Lock
+const releaseWakeLock = () => {
+	if (wakeLock !== null) {
+		wakeLock.release();
+		wakeLock = null;
+		console.log('Wake Lock is released.');
+	}
+};
 document.addEventListener('click', function() {
 		if (!document.fullscreenElement) {
 			document.documentElement.requestFullscreen().catch(err => {
 				alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
 			});
+			requestWakeLock();
 		} else {
 			document.exitFullscreen();
+			releaseWakeLock();
 		}
 	});
 $(function(){
