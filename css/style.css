@@ -95,8 +95,39 @@ transition:width 0.5s;
 .second-hand {
     width: 2px;
     height: 164px;
-    background: #FA9F22;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    background:
+        linear-gradient(90deg,
+            rgba(255, 255, 255, 0.30) 0%,
+            rgba(255, 255, 255, 0.09) 40%,
+            rgba(246, 213, 132, 0.08) 100%);
+    box-shadow:
+        0 0 3px rgba(255, 230, 170, 0.12),
+        inset 0 0 3px rgba(255, 255, 255, 0.10),
+        inset -1px 0 2px rgba(246, 213, 132, 0.10);
+    backdrop-filter: blur(1.0px) saturate(110%);
+    -webkit-backdrop-filter: blur(1.0px) saturate(110%);
     transform: translate(-50%,-100%) translateY(24px);
+    overflow: hidden;
+}
+
+.second-hand::before {
+    content: none;
+}
+
+.second-hand::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 9%;
+    width: 1px;
+    height: 82%;
+    border-radius: 999px;
+    background: linear-gradient(180deg,
+        rgba(246, 213, 132, 0.20),
+        rgba(246, 213, 132, 0.06));
+    filter: blur(0.3px);
 }
 
 .hour {
@@ -106,15 +137,36 @@ transition:width 0.5s;
 .thin-hand {
     width: 4px;
     height: 50px;
-    background: white;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.34);
+    background: linear-gradient(90deg,
+        rgba(255, 255, 255, 0.48) 0%,
+        rgba(255, 255, 255, 0.14) 42%,
+        rgba(188, 205, 222, 0.08) 100%);
+    box-shadow:
+        0 0 4px rgba(255, 255, 255, 0.10),
+        inset 0 0 4px rgba(255, 255, 255, 0.18),
+        inset -1px 0 3px rgba(188, 205, 222, 0.10);
+    backdrop-filter: blur(0.8px) saturate(110%);
+    -webkit-backdrop-filter: blur(0.8px) saturate(110%);
     transform: translate(-50%,-100%);
 }
 
 .fat-hand {
     width: 10px;
     height: 57px;
-    border-radius: 10px;
-    background: white;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.36);
+    background: linear-gradient(90deg,
+        rgba(255, 255, 255, 0.52) 0%,
+        rgba(255, 255, 255, 0.18) 45%,
+        rgba(188, 205, 222, 0.10) 100%);
+    box-shadow:
+        0 0 5px rgba(255, 255, 255, 0.12),
+        inset 0 0 5px rgba(255, 255, 255, 0.20),
+        inset -2px 0 4px rgba(188, 205, 222, 0.12);
+    backdrop-filter: blur(1.0px) saturate(115%);
+    -webkit-backdrop-filter: blur(1.0px) saturate(115%);
     transform: translate(-50%,-100%) translateY(-18px);
 }
 

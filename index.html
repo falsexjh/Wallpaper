@@ -19,7 +19,6 @@
 <span><button id="pisker">bgcolor</button></span><br/>
 <span><button id="text1">text1</button></span><br/>
 <span><button id="text2">text2</button></span><br/>
-<span><button id="z">second-hand</button></span><br/>
 </div>
 <script>
 let wakeLock = null;
@@ -72,12 +71,6 @@ $(function(){
 	$('#text2').colpick({	
 		onSubmit:function(A,B){
 			$('.minute-text').css('color','#'+B);
-			
-		}
-	});
-	$('#z').colpick({	
-		onSubmit:function(A,B){
-			$('.second-hand').css('background','#'+B);
 			
 		}
 	});
